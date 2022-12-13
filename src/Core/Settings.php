@@ -24,7 +24,7 @@ class Settings {
         $form_fields['dll_on_attachment'] = array(
             'value' => $field_value ? $field_value : '',
             'input' => 'html',
-            'html' => '<input style="margin-top:0" ' . ( $field_value ? ' checked="checked"' : '' ) . ' type="checkbox" name="attachments[' . $post->ID . '][dll_on_attachment]" id="attachments-' . $post->ID . '-dll_on_attachment" /> <label><strong>' . __( "Disable lazy loading", 'disable-lazy-load' ) .'</strong></label>',
+            'html' => '<label><input style="margin-top:0" ' . ( $field_value ? ' checked="checked"' : '' ) . ' type="checkbox" name="attachments[' . $post->ID . '][dll_on_attachment]" id="attachments-' . $post->ID . '-dll_on_attachment" /> <strong>' . __( "Disable lazy loading", 'disable-lazy-load' ) .'</strong></label>',
             'label' => '',
             'required' => false,
         );
@@ -87,20 +87,21 @@ class Settings {
         
         // Output setting for all site disable field
         ?>
+        <fieldset>     
+            <label>
+              <input name="dll_settings[all_images]" class="dll_settings" type="checkbox" value="1" <?php checked( 1, $all_images ); ?>>
 
-        <input name="dll_settings[all_images]" class="dll_settings" type="checkbox" value="1" <?php checked( 1, $all_images ); ?>>
-        <label>
-             <?php _e( 'Disable on all images.', 'disable-lazy-load' ); ?>
-        </label>
+              <?php _e( 'Disable on all images ( except post thumbnails ).', 'disable-lazy-load' ); ?>
+            </label>
+        </fieldset>
 
         <br />
 
-
         <fieldset>     
-            <input name="dll_settings[post_thumbnails]" class="dll_post_thumbnails_settings" type="checkbox" value="1" <?php checked( 1, $post_thumbnails ); ?>>
             <label>
+                <input name="dll_settings[post_thumbnails]" class="dll_post_thumbnails_settings" type="checkbox" value="1" <?php checked( 1, $post_thumbnails ); ?>>
                 <?php _e( 'Disable only on post thumbnails.', 'disable-lazy-load' ); ?>
-             </label>
+            </label>
         </fieldset>
 
 <?php
