@@ -27,15 +27,15 @@ final class DisableLazyLoad {
 
         $disable_all = get_option('dll_settings');
 
-        // Disable on all images if the setting for all images is checked
-        if( ! empty( $disable_all['all_images'] ) ) {
+		// Disable on all images if the setting for all images is checked
+		if( ! empty( $disable_all['all_images'] ) ) {
             add_filter( 'wp_lazy_loading_enabled', '__return_false' );
         }
 
         // Disable on post thumbnails or images called by wp_get_attachment_image if the respective setting is checked.
 
         if( ! empty( $disable_all['post_thumbnails'] ) ) {
-            add_filter( 'wp_lazy_loading_enabled', array( $this, 'disable_on_post_thumbnails' ), 10, 3 );
+			add_filter( 'wp_get_attachment_image_attributes', array( $this, 'disable_on_post_thumbnails' ), 10, 3 );
         }
 
         // Disable on specific images on the basis of meta box added
@@ -46,15 +46,25 @@ final class DisableLazyLoad {
 
     public function disable_on_specific_post_thumbnails( $attr, $attachment, $size ) {
         $attachment_id = $attachment->ID;
-        
-        $image_url = wp_get_attachment_image_url( $attachment->ID );
+
         $dll_disable = get_post_meta( $attachment_id, 'dll_on_attachment', true );
 
         if( 'on' === $dll_disable ) {
-            unset( $attr['loading'] );
+             $attr['loading'] = 'eager';
         }
         
         return $attr;
+        
+    }
+
+	public function disable_on_post_thumbnails( $attr, $attachment, $size ) {
+		$post_thumbnail_id = get_post_thumbnail_id();
+		
+		if( $attachment->ID == $post_thumbnail_id ) {
+			$attr['loading'] = 'eager';			
+		}
+
+		return $attr;
         
     }
     
@@ -87,16 +97,6 @@ final class DisableLazyLoad {
             
         return $value;
     }
-    
-    public function disable_on_post_thumbnails( $default, $tag_name, $context ) {
-
-        if ( 'img' === $tag_name && 'wp_get_attachment_image' === $context ) {
-            return false;
-        }
-
-        return $default;
-    }
-
 }
 
 DisableLazyLoad::get_instance();
