@@ -29,11 +29,18 @@ To disable only on a specific image:
 
 *Note: You can disable on specific image, while uploading or setting a featured image too.*
 
+== Screenshots ==
+
+1. Media setting
+2. Media edit page
+3. Media popup
+
 == Changelog ==
 
 = 1.0.3 - Jan 7, 2022 =
 * Tested upto WordPress 5.8
 * Update description
+* Add screenshots
 
 = 1.0.2 - Aug 20, 2020 =
 * Feature: add meta option on each image to disable lazy loading
@@ -43,4 +50,6 @@ To disable only on a specific image:
 
 = 1.0.0 - Aug 14, 2020 =
 * Inital release
+
+1. This is a monkey
 
