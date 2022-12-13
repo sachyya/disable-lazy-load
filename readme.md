@@ -2,9 +2,9 @@
 Contributors: sachyya sachet
 Tags: disable-lazy-load, images, lazy-loading, skip-lazy-loading
 Requires at least: 5.5
-Tested up to: 5.8
+Tested up to: 6.1
 Requires PHP: 7.2
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,11 @@ To disable only on a specific image:
 3. Media popup
 
 == Changelog ==
+
+= 1.0.4 - Ded 13, 2022 =
+* Update: change logic for post thumbnails using `wp_get_attachment_image_attributes` hook
+* Update: Wrap settings with `label`
+* Update: Change setting label
 
 = 1.0.3 - Jan 7, 2022 =
 * Tested upto WordPress 5.8

@@ -11,8 +11,8 @@
  * Plugin Name:       Disable Lazy Load
  * Plugin URI:        
  * Description:       Simple plugin to disable lazy loading feature on the site or only on specific images.
- * Version:           1.0.3
- * Requires at least: 5.5
+ * Version:           1.0.4
+ * Requires at least: 6.1
  * Requires PHP:      7.2
  * Author:            Sachyya
  * Author URI:        https://sachyya.github.io
@@ -36,7 +36,7 @@ if ( !defined( 'DLL_DIR_PATH' ) ) {
 }
 
 if ( !defined( 'DLL_VERSION' ) ) {
-    define( 'DLL_VERSION', '1.0.0' );
+    define( 'DLL_VERSION', '1.0.4' );
 }
 
 require_once( DLL_PATH . '/src/class-disable-lazy-load.php' );
