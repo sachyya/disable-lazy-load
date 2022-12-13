@@ -8,11 +8,17 @@ Stable tag: 1.0.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Simple plugin to disable lazy loading feature on the site or only on specific images.
+Simple plugin to disable [lazy loading](https://make.wordpress.org/core/2020/04/08/lazy-loading-of-images-is-in-core/) functionality introduced in WordPress version 5.5. The plugin provides more control whether to disable on all images, post thumbnails or any specific image.
  
 == Description ==
  
-Simple plugin to disable lazy loading feature on the site or only on specific images.
+Simple plugin to disable [lazy loading](https://make.wordpress.org/core/2020/04/08/lazy-loading-of-images-is-in-core/) functionality introduced in WordPress version 5.5. The plugin provides more control whether to disable on all images, post thumbnails or any specific image.
+
+**Features**
+* Easy and simple settings to disable lazy  load
+* **More control on whether to disable on all images, post thumbnails or specific image**
+* Built with PSR-4 standard and secure code
+* Can be undone easily since it does not alter anything parmanent
 
 == Settings ==
 
@@ -55,6 +61,3 @@ To disable only on a specific image:
 
 = 1.0.0 - Aug 14, 2020 =
 * Inital release
-
-1. This is a monkey
-

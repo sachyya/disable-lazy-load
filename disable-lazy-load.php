@@ -31,8 +31,12 @@ if ( !defined( 'DLL_URL' ) ) {
     define( 'DLL_URL', plugin_dir_url( __FILE__ ) );
 }
 
-if ( !defined( 'DLL_DIR_PATH' ) ) {
+if ( !defined( 'DLL_PATH' ) ) {
     define( 'DLL_PATH', plugin_dir_path( __FILE__ ) );
+}
+
+if ( !defined( 'DLL_BASENAME' ) ) {
+    define( 'DLL_BASENAME', plugin_basename(__FILE__) );
 }
 
 if ( !defined( 'DLL_VERSION' ) ) {

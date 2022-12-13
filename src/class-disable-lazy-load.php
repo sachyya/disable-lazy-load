@@ -22,6 +22,9 @@ final class DisableLazyLoad {
 	}
 
 	public function init() {
+        // Add setting link
+        add_filter( 'plugin_action_links_' . DLL_BASENAME, array( $this, 'add_action_links' ) );
+
         // Get instance of Settings class
         Settings::get_instance();
 
@@ -43,6 +46,16 @@ final class DisableLazyLoad {
         add_filter( 'wp_get_attachment_image_attributes', array( $this, 'disable_on_specific_post_thumbnails' ), 10, 3 );
  
 	}
+
+    public function add_action_links ( $actions ) {
+        $setting_link = array(
+            '<a href="' . admin_url( 'options-media.php' ) . '">' . __( 'Settings', 'disable-lazy-load' ) . '</a>',
+        );
+        
+        $actions = array_merge( $actions, $setting_link );
+        
+        return $actions;
+    }
 
     public function disable_on_specific_post_thumbnails( $attr, $attachment, $size ) {
         $attachment_id = $attachment->ID;
